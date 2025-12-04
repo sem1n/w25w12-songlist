@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import SongList from "./pages/SongList.jsx";
 import SongDetail from "./pages/SongDetail.jsx";
-import { getSongList } from "./api/songApi.js";
+import { getSongList } from "./api/songApi";
 
 function App() {
   // const [songs, setSongs] = useState([]);

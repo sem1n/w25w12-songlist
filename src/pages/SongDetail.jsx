@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getSongDetail } from "../api/songApi";
+import { getSongDetail } from "../api/songApi.js";
 
 const renderRatingStars = (rating, maxRating = 5) => {
   const stars = [];
@@ -31,11 +31,16 @@ const renderRatingStars = (rating, maxRating = 5) => {
 const SongDetail = () => {
   const { id } = useParams();
 
-  const { data: song, isLoading, isError, error } = useQuery({
-    queryKey: ['song', id],
+  const {
+    data: song,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["song", id],
     queryFn: () => getSongDetail(id),
     enabled: !!id,
-  })
+  });
 
   if (isLoading) {
     return <p className="text-center mt-10">Loading...</p>;
